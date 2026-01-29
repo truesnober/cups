@@ -4,7 +4,7 @@ import { PRICING_PLANS } from '@/constants';
 import PricingCard from '../../ui/PricingCard';
 import styles from './Pricing.module.css';
 
-const Pricing = ({ onOrderClick }) => {
+const Pricing = () => {
   return (
     <section id="pricing" className={styles.pricing}>
       <div className={styles.container}>
@@ -19,7 +19,6 @@ const Pricing = ({ onOrderClick }) => {
             <PricingCard
               key={plan.id}
               plan={plan}
-              onOrderClick={onOrderClick}
             />
           ))}
         </div>

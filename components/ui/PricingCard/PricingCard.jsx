@@ -4,9 +4,12 @@ import { Button } from 'antd';
 import { CheckOutlined } from '@ant-design/icons';
 import styles from './PricingCard.module.css';
 
-const PricingCard = ({ plan, onOrderClick }) => {
+const PricingCard = ({ plan }) => {
   const handleOrder = () => {
-    onOrderClick(plan.name);
+    const element = document.querySelector('#contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (

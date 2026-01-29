@@ -49,8 +49,14 @@
 
   .grid > *:last-child {
     grid-column: 1 / -1;
-    max-width: 400px;
+    max-width: 50%;
     margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 577px) {
+  .grid > *:last-child {
+    max-width: 100%;
   }
 }
 
