@@ -1,0 +1,161 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.header.scrolled {
+  background-color: rgba(30, 34, 53, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logoImage {
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.logo:hover .logoImage {
+  transform: scale(1.05);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.navLink {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #1db954;
+  transition: width 0.2s ease;
+}
+
+.navLink:hover {
+  color: #1db954;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.orderButton {
+  font-weight: 600;
+  height: 36px;
+  padding: 0 20px;
+  border-radius: 18px;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.orderButton:hover,
+.orderButton:focus,
+.orderButton:active {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.mobileMenuButton {
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.mobileDrawer :global(.ant-drawer-body) {
+  background-color: #1e2235;
+  padding: 0;
+}
+
+.mobileDrawer :global(.ant-drawer-content) {
+  background-color: #1e2235;
+}
+
+.mobileDrawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid #363a4d;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.mobileNavLink {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 16px 0;
+  border-bottom: 1px solid #363a4d;
+  transition: color 0.2s ease;
+}
+
+.mobileNavLink:hover {
+  color: #1db954;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .orderButton {
+    display: none;
+  }
+
+  .mobileMenuButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,230 @@
+.hero {
+  min-height: 100vh;
+  background-color: #1E2235;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 100px 20px 60px;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background-color: rgba(29, 185, 84, 0.1);
+  border: 1px solid rgba(29, 185, 84, 0.3);
+  border-radius: 20px;
+  color: #1DB954;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.badge::before {
+  content: '✓';
+  font-size: 12px;
+}
+
+.title {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 24px 0;
+}
+
+.titleMain {
+  display: block;
+  color: #FFFFFF;
+}
+
+.titleAccent {
+  display: block;
+  color: #1DB954;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #8B8E99;
+  line-height: 1.6;
+  margin: 0 0 40px 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 80px;
+}
+
+.primaryButton {
+  height: 52px;
+  padding: 0 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 26px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.primaryButton:hover,
+.primaryButton:focus,
+.primaryButton:active {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.primaryButton :global(.anticon) {
+  font-size: 14px;
+}
+
+.secondaryButton {
+  height: 52px;
+  padding: 0 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 26px;
+  background-color: transparent;
+  border: 2px solid #363a4d !important;
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: none !important;
+}
+
+.secondaryButton:hover,
+.secondaryButton:focus,
+.secondaryButton:active {
+  border: 2px solid #1DB954 !important;
+  color: #1DB954 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  padding-top: 40px;
+  border-top: 1px solid #363a4d;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statValue {
+  font-size: 36px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 14px;
+  color: #8B8E99;
+  margin-top: 8px;
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #8B8E99;
+  font-size: 20px;
+  animation: bounce 2s infinite;
+  cursor: pointer;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 80px 16px 40px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    padding: 0 16px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 48px;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .stats {
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .statItem {
+    flex: 0 0 40%;
+  }
+
+  .statValue {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .badges {
+    gap: 8px;
+  }
+
+  .badge {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+}

@@ -1,0 +1,103 @@
+'use client'
+
+import { useState } from 'react';
+import { Button } from 'antd';
+import { ArrowRightOutlined, CheckOutlined } from '@ant-design/icons';
+import ColorCarousel from '../ColorCarousel';
+import styles from './ProductCard.module.css';
+
+const ProductCard = ({ product }) => {
+  const [selectedVariant, setSelectedVariant] = useState(product.variants[0]);
+
+  const handleVariantChange = (variant) => {
+    setSelectedVariant(variant);
+  };
+
+  const handleOrder = () => {
+    const element = document.querySelector('#contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <div className={styles.card}>
+      <div className={styles.imageContainer}>
+        <div
+          className={styles.image}
+          style={{
+            backgroundImage: selectedVariant?.image
+              ? `url(${selectedVariant.image})`
+              : 'none',
+          }}
+        >
+          {!selectedVariant?.image && (
+            <div className={styles.placeholder}>
+              <svg
+                width="80"
+                height="100"
+                viewBox="0 0 80 100"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10 10 L70 10 L65 90 L15 90 Z"
+                  fill="#E0E0E0"
+                  stroke="#BDBDBD"
+                  strokeWidth="2"
+                />
+                <ellipse
+                  cx="40"
+                  cy="10"
+                  rx="30"
+                  ry="8"
+                  fill="#E0E0E0"
+                  stroke="#BDBDBD"
+                  strokeWidth="2"
+                />
+              </svg>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className={styles.content}>
+        <div className={styles.header}>
+          <h3 className={styles.size}>
+            {product.size}
+            <CheckOutlined className={styles.checkIcon} />
+          </h3>
+          <p className={styles.name}>{product.name}</p>
+        </div>
+
+        <p className={styles.description}>{product.description}</p>
+
+        <ColorCarousel
+          variants={product.variants}
+          selectedVariant={selectedVariant}
+          onVariantChange={handleVariantChange}
+        />
+
+        <div className={styles.dimensions}>
+          <span>∅ {product.dimensions.diameter}мм</span>
+          <span>↕ {product.dimensions.height}мм</span>
+        </div>
+
+        <div className={styles.footer}>
+          <div className={styles.price}>
+            от {product.price.toFixed(2)} {product.priceUnit}
+          </div>
+          <Button
+            type="primary"
+            shape="circle"
+            icon={<ArrowRightOutlined />}
+            onClick={handleOrder}
+            className={styles.orderButton}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProductCard;
