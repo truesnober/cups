@@ -9,15 +9,15 @@ export const SOCIAL_LINKS = [
   {
     id: "telegram",
     name: "Telegram",
-    url: "https://t.me/79892581313",
+    url: "https://t.me/luckycup24",
     icon: "telegram",
   },
-  {
-    id: "whatsapp",
-    name: "WhatsApp",
-    url: "https://wa.me/79892581313",
-    icon: "whatsapp",
-  },
+  // {
+  //   id: "whatsapp",
+  //   name: "WhatsApp",
+  //   url: "https://wa.me/79892581313",
+  //   icon: "whatsapp",
+  // },
   // {
   //   id: "instagram",
   //   name: "Instagram",
