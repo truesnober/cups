@@ -1,6 +1,6 @@
 export const CONTACTS = {
   phone: "+7 (989) 258-13-13",
-  email: "manager.simf@gmail.com",
+  email: "manager.simf@gmail.com \nlakin05@mail.ru",
   address: "г. Симферополь",
   workingHours: "Пн-Пт: 9:00 - 18:00",
 };
@@ -9,21 +9,21 @@ export const SOCIAL_LINKS = [
   {
     id: "telegram",
     name: "Telegram",
-    url: "https://t.me/cupcoffee",
+    url: "https://t.me/79892581313",
     icon: "telegram",
   },
   {
     id: "whatsapp",
     name: "WhatsApp",
-    url: "https://wa.me/79001234567",
+    url: "https://wa.me/79892581313",
     icon: "whatsapp",
   },
-  {
-    id: "instagram",
-    name: "Instagram",
-    url: "https://instagram.com/cupcoffee",
-    icon: "instagram",
-  },
+  // {
+  //   id: "instagram",
+  //   name: "Instagram",
+  //   url: "https://instagram.com/cupcoffee",
+  //   icon: "instagram",
+  // },
 ];
 
 export const FOOTER_LINKS = {
@@ -44,8 +44,8 @@ export const FOOTER_LINKS = {
 };
 
 export const COMPANY_INFO = {
-  name: "CupCoffee",
+  name: 'ООО ”РОСТ КРЫМ"',
   description:
     "Премиум бумажные стаканы для вашего бизнеса. Качество, экологичность и стиль в каждом изделии.",
-  copyright: "© 2024 CupCoffee. Все права защищены.",
+  copyright: '© 2024 ООО ”РОСТ КРЫМ". Все права защищены.',
 };
