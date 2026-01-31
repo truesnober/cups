@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Button } from 'antd';
-import { ArrowRightOutlined, CheckOutlined } from '@ant-design/icons';
+import { ArrowRightOutlined, CheckOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
 import ColorCarousel from '../ColorCarousel';
 import styles from './ProductCard.module.css';
 
@@ -11,6 +11,20 @@ const ProductCard = ({ product }) => {
 
   const handleVariantChange = (variant) => {
     setSelectedVariant(variant);
+  };
+
+  const currentIndex = product.variants.findIndex(v => v.id === selectedVariant?.id);
+
+  const handlePrev = (e) => {
+    e.stopPropagation();
+    const newIndex = currentIndex > 0 ? currentIndex - 1 : product.variants.length - 1;
+    setSelectedVariant(product.variants[newIndex]);
+  };
+
+  const handleNext = (e) => {
+    e.stopPropagation();
+    const newIndex = currentIndex < product.variants.length - 1 ? currentIndex + 1 : 0;
+    setSelectedVariant(product.variants[newIndex]);
   };
 
   const handleOrder = () => {
@@ -23,6 +37,11 @@ const ProductCard = ({ product }) => {
   return (
     <div className={styles.card}>
       <div className={styles.imageContainer}>
+        {product.variants.length > 1 && (
+          <button className={`${styles.imageArrow} ${styles.imageArrowLeft}`} onClick={handlePrev}>
+            <LeftOutlined />
+          </button>
+        )}
         <div
           className={styles.image}
           style={{
@@ -59,6 +78,11 @@ const ProductCard = ({ product }) => {
             </div>
           )}
         </div>
+        {product.variants.length > 1 && (
+          <button className={`${styles.imageArrow} ${styles.imageArrowRight}`} onClick={handleNext}>
+            <RightOutlined />
+          </button>
+        )}
       </div>
 
       <div className={styles.content}>

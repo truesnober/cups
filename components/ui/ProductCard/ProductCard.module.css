@@ -1,10 +1,10 @@
 .card {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   transition: all 0.3s ease;
-  border: 1px solid #F0F0F0;
+  border: 1px solid #f0f0f0;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -16,21 +16,62 @@
 }
 
 .imageContainer {
-  background-color: #F5F0EB;
+  background-color: #f5f0eb;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   overflow: hidden;
+  position: relative;
+}
+
+.imageArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 14px;
+  color: #1e2235;
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+
+.imageContainer:hover .imageArrow {
+  opacity: 1;
+}
+
+.imageArrow:hover {
+  background-color: #1db954;
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.imageArrowLeft {
+  left: 12px;
+}
+
+.imageArrowRight {
+  right: 12px;
 }
 
 .image {
-  width: 100%;
+  width: 150%;
+  height: 150%;
   aspect-ratio: 4 / 3;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: #F5F0EB;
+  background-color: #f5f0eb;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,7 +103,7 @@
 .size {
   font-size: 32px;
   font-weight: 700;
-  color: #1E2235;
+  color: #1e2235;
   margin: 0;
   display: flex;
   align-items: center;
@@ -72,26 +113,26 @@
 .checkIcon {
   width: 24px;
   height: 24px;
-  background-color: #1DB954;
+  background-color: #1db954;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 12px;
 }
 
 .name {
   font-size: 16px;
   font-weight: 600;
-  color: #1E2235;
+  color: #1e2235;
   margin: 0;
   min-height: 24px;
 }
 
 .description {
   font-size: 14px;
-  color: #8B8E99;
+  color: #8b8e99;
   margin: 8px 0 16px;
   line-height: 1.4;
   min-height: 40px;
@@ -102,13 +143,13 @@
   gap: 12px;
   margin-top: 16px;
   padding-top: 12px;
-  border-top: 1px solid #F0F0F0;
+  border-top: 1px solid #f0f0f0;
 }
 
 .dimensions span {
   font-size: 12px;
-  color: #FFFFFF;
-  background-color: #262A3D;
+  color: #ffffff;
+  background-color: #262a3d;
   padding: 6px 12px;
   border-radius: 16px;
   font-weight: 500;
@@ -125,7 +166,7 @@
 .price {
   font-size: 20px;
   font-weight: 700;
-  color: #1DB954;
+  color: #1db954;
 }
 
 .orderButton {
