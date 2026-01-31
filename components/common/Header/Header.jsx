@@ -44,7 +44,7 @@ const Header = () => {
           }}
         >
           <Image
-            src="/img/logo.png"
+            src="/img/logo2.png"
             alt="L&G"
             width={120}
             height={40}

@@ -1,36 +1,46 @@
-'use client'
+"use client";
 
-import { useState } from 'react';
-import { Button } from 'antd';
-import { ArrowRightOutlined, CheckOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
-import ColorCarousel from '../ColorCarousel';
-import styles from './ProductCard.module.css';
+import { useState } from "react";
+import { Button } from "antd";
+import {
+  ArrowRightOutlined,
+  CheckOutlined,
+  LeftOutlined,
+  RightOutlined,
+} from "@ant-design/icons";
+import ColorCarousel from "../ColorCarousel";
+import styles from "./ProductCard.module.css";
 
 const ProductCard = ({ product }) => {
   const [selectedVariant, setSelectedVariant] = useState(product.variants[0]);
+  const [isButtonHovered, setIsButtonHovered] = useState(false);
 
   const handleVariantChange = (variant) => {
     setSelectedVariant(variant);
   };
 
-  const currentIndex = product.variants.findIndex(v => v.id === selectedVariant?.id);
+  const currentIndex = product.variants.findIndex(
+    (v) => v.id === selectedVariant?.id,
+  );
 
   const handlePrev = (e) => {
     e.stopPropagation();
-    const newIndex = currentIndex > 0 ? currentIndex - 1 : product.variants.length - 1;
+    const newIndex =
+      currentIndex > 0 ? currentIndex - 1 : product.variants.length - 1;
     setSelectedVariant(product.variants[newIndex]);
   };
 
   const handleNext = (e) => {
     e.stopPropagation();
-    const newIndex = currentIndex < product.variants.length - 1 ? currentIndex + 1 : 0;
+    const newIndex =
+      currentIndex < product.variants.length - 1 ? currentIndex + 1 : 0;
     setSelectedVariant(product.variants[newIndex]);
   };
 
   const handleOrder = () => {
-    const element = document.querySelector('#contact');
+    const element = document.querySelector("#contact");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -38,16 +48,22 @@ const ProductCard = ({ product }) => {
     <div className={styles.card}>
       <div className={styles.imageContainer}>
         {product.variants.length > 1 && (
-          <button className={`${styles.imageArrow} ${styles.imageArrowLeft}`} onClick={handlePrev}>
+          <button
+            className={`${styles.imageArrow} ${styles.imageArrowLeft}`}
+            onClick={handlePrev}
+          >
             <LeftOutlined />
           </button>
         )}
         <div
           className={styles.image}
           style={{
-            backgroundImage: selectedVariant?.image
-              ? `url(${selectedVariant.image})`
-              : 'none',
+            ...(selectedVariant?.customSize || {}),
+            backgroundImage: selectedVariant?.customSize?.noGradient
+              ? selectedVariant?.image ? `url(${selectedVariant.image})` : "none"
+              : selectedVariant?.image
+                ? `url(${selectedVariant.image}), radial-gradient(ellipse at center, #fff5f0 0%, #f5f0eb 50%, #f0e6dd 100%)`
+                : "radial-gradient(ellipse at center, #fff5f0 0%, #f5f0eb 50%, #f0e6dd 100%)",
           }}
         >
           {!selectedVariant?.image && (
@@ -79,7 +95,10 @@ const ProductCard = ({ product }) => {
           )}
         </div>
         {product.variants.length > 1 && (
-          <button className={`${styles.imageArrow} ${styles.imageArrowRight}`} onClick={handleNext}>
+          <button
+            className={`${styles.imageArrow} ${styles.imageArrowRight}`}
+            onClick={handleNext}
+          >
             <RightOutlined />
           </button>
         )}
@@ -117,6 +136,18 @@ const ProductCard = ({ product }) => {
             icon={<ArrowRightOutlined />}
             onClick={handleOrder}
             className={styles.orderButton}
+            onMouseEnter={() => setIsButtonHovered(true)}
+            onMouseLeave={() => setIsButtonHovered(false)}
+            style={
+              isButtonHovered
+                ? {
+                    transform: "scale(1.15)",
+                    boxShadow: "0 4px 16px rgba(29, 185, 84, 0.5)",
+                    backgroundColor: "#15a049",
+                    borderColor: "#15a049",
+                  }
+                : {}
+            }
           />
         </div>
       </div>

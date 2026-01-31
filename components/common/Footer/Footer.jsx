@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
+import Image from "next/image";
 import {
   PhoneOutlined,
   MailOutlined,
@@ -9,13 +9,9 @@ import {
   SendOutlined,
   WhatsAppOutlined,
   InstagramOutlined,
-} from '@ant-design/icons';
-import {
-  CONTACTS,
-  SOCIAL_LINKS,
-  COMPANY_INFO,
-} from '@/constants';
-import styles from './Footer.module.css';
+} from "@ant-design/icons";
+import { CONTACTS, SOCIAL_LINKS, COMPANY_INFO } from "@/constants";
+import styles from "./Footer.module.css";
 
 const Footer = () => {
   return (
@@ -25,7 +21,7 @@ const Footer = () => {
           <div className={styles.info}>
             <a href="#home" className={styles.logo}>
               <Image
-                src="/img/logo.png"
+                src="/img/logo2.png"
                 alt="CupCoffee"
                 width={120}
                 height={40}
@@ -38,7 +34,7 @@ const Footer = () => {
           <div className={styles.contacts}>
             <div className={styles.contactItem}>
               <PhoneOutlined />
-              <a href={`tel:${CONTACTS.phone.replace(/\s/g, '')}`}>
+              <a href={`tel:${CONTACTS.phone.replace(/\s/g, "")}`}>
                 {CONTACTS.phone}
               </a>
             </div>

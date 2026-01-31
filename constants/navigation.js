@@ -1,32 +1,32 @@
 export const NAVIGATION_ITEMS = [
   {
-    key: 'home',
-    label: 'Главная',
-    href: '#home',
+    key: "home",
+    label: "Главная",
+    href: "#home",
   },
   {
-    key: 'catalog',
-    label: 'Продукция',
-    href: '#catalog',
+    key: "catalog",
+    label: "Продукция",
+    href: "#catalog",
   },
   {
-    key: 'advantages',
-    label: 'Преимущества',
-    href: '#advantages',
+    key: "advantages",
+    label: "Преимущества",
+    href: "#advantages",
   },
   {
-    key: 'pricing',
-    label: 'Цены',
-    href: '#pricing',
+    key: "pricing",
+    label: "Цены",
+    href: "#pricing",
   },
   {
-    key: 'contact',
-    label: 'Контакты',
-    href: '#contact',
+    key: "contact",
+    label: "Контакты",
+    href: "#contact",
   },
 ];
 
 export const LOGO = {
-  text: 'CupCoffee',
-  image: '/images/logo.png',
+  text: "CupCoffee",
+  image: "/images/logo2.png",
 };
