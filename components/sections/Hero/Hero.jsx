@@ -1,22 +1,26 @@
-'use client'
+"use client";
 
-import { Button } from 'antd';
-import { ArrowRightOutlined, PhoneOutlined, DownOutlined } from '@ant-design/icons';
-import { HERO_STATS } from '@/constants';
-import styles from './Hero.module.css';
+import { Button } from "antd";
+import {
+  ArrowRightOutlined,
+  PhoneOutlined,
+  DownOutlined,
+} from "@ant-design/icons";
+import { HERO_STATS } from "@/constants";
+import styles from "./Hero.module.css";
 
 const Hero = () => {
   const handleScrollToCatalog = () => {
-    const element = document.querySelector('#catalog');
+    const element = document.querySelector("#catalog");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   const handleScrollToContact = () => {
-    const element = document.querySelector('#contact');
+    const element = document.querySelector("#contact");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -69,7 +73,7 @@ const Hero = () => {
           ))}
         </div>
 
-        <div className={styles.scrollIndicator}>
+        <div className={styles.scrollIndicator} onClick={handleScrollToCatalog}>
           <DownOutlined />
         </div>
       </div>

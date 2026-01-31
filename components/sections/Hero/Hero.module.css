@@ -159,6 +159,11 @@
   font-size: 20px;
   animation: bounce 2s infinite;
   cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.scrollIndicator:hover {
+  color: #1DB954;
 }
 
 @keyframes bounce {
