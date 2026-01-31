@@ -16,7 +16,7 @@
 }
 
 .imageContainer {
-  background-color: #FFFFFF;
+  background-color: #F5F0EB;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,6 +30,7 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: #F5F0EB;
   display: flex;
   align-items: center;
   justify-content: center;
