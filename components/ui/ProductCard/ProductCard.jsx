@@ -114,12 +114,15 @@ const ProductCard = ({ product }) => {
         <div className={styles.content}>
           <div className={styles.header}>
             <h3 className={styles.size}>
-              {product.size}
+              <span className={styles.skeletonBar} style={{ width: "80px", height: "28px" }} />
               <span className={styles.skeletonBadge}>NEW</span>
             </h3>
           </div>
 
-          <p className={styles.description}>{product.description}</p>
+          <div className={styles.skeletonTextLines}>
+            <span className={styles.skeletonBar} style={{ width: "100%" }} />
+            <span className={styles.skeletonBar} style={{ width: "70%" }} />
+          </div>
 
           <div className={styles.skeletonColors}>
             <div className={styles.skeletonColorDot} />
@@ -128,12 +131,12 @@ const ProductCard = ({ product }) => {
           </div>
 
           <div className={styles.dimensions}>
-            <span>∅ {product.dimensions.diameter}мм</span>
-            <span>↕ {product.dimensions.height}мм</span>
+            <span className={styles.skeletonDimension} />
+            <span className={styles.skeletonDimension} />
           </div>
 
           <div className={styles.footer}>
-            <div className={styles.skeletonPrice}>~{product.price.toFixed(2)} {product.priceUnit}</div>
+            <span className={styles.skeletonBar} style={{ width: "70px", height: "20px" }} />
           </div>
         </div>
       </div>
