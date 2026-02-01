@@ -35,7 +35,7 @@ const Hero = () => {
 
         <h1 className={styles.title}>
           <span className={styles.titleMain}>Бумажные стаканы</span>
-          <span className={styles.titleAccent}>качественного производства</span>
+          <span className={styles.titleAccent}>высокого качества</span>
         </h1>
 
         <p className={styles.subtitle}>

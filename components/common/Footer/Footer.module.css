@@ -79,6 +79,18 @@
   flex-shrink: 0;
 }
 
+.phonesList,
+.emailsList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contactName {
+  color: #6b6e7a;
+  font-size: 11px;
+}
+
 .bottom {
   display: flex;
   align-items: center;

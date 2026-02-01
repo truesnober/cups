@@ -34,10 +34,14 @@ const Contact = () => {
               <PhoneOutlined />
             </div>
             <div className={styles.contactText}>
-              <span className={styles.contactLabel}>Телефон</span>
-              <a href={`tel:${CONTACTS.phone.replace(/\s/g, '')}`} className={styles.contactValue}>
-                {CONTACTS.phone}
-              </a>
+              <span className={styles.contactLabel}>Телефоны</span>
+              <div className={styles.phonesList}>
+                {CONTACTS.phones.map((phone, index) => (
+                  <a key={index} href={`tel:${phone.number.replace(/\s/g, '')}`} className={styles.contactValue}>
+                    {phone.number} <span className={styles.contactName}>({phone.name})</span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -47,9 +51,13 @@ const Contact = () => {
             </div>
             <div className={styles.contactText}>
               <span className={styles.contactLabel}>Email</span>
-              <a href={`mailto:${CONTACTS.email}`} className={styles.contactValue}>
-                {CONTACTS.email}
-              </a>
+              <div className={styles.emailsList}>
+                {CONTACTS.emails.map((email, index) => (
+                  <a key={index} href={`mailto:${email}`} className={styles.contactValue}>
+                    {email}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 

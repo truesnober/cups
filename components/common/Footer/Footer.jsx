@@ -34,13 +34,23 @@ const Footer = () => {
           <div className={styles.contacts}>
             <div className={styles.contactItem}>
               <PhoneOutlined />
-              <a href={`tel:${CONTACTS.phone.replace(/\s/g, "")}`}>
-                {CONTACTS.phone}
-              </a>
+              <div className={styles.phonesList}>
+                {CONTACTS.phones.map((phone, index) => (
+                  <a key={index} href={`tel:${phone.number.replace(/\s/g, "")}`}>
+                    {phone.number} <span className={styles.contactName}>({phone.name})</span>
+                  </a>
+                ))}
+              </div>
             </div>
             <div className={styles.contactItem}>
               <MailOutlined />
-              <a href={`mailto:${CONTACTS.email}`}>{CONTACTS.email}</a>
+              <div className={styles.emailsList}>
+                {CONTACTS.emails.map((email, index) => (
+                  <a key={index} href={`mailto:${email}`}>
+                    {email}
+                  </a>
+                ))}
+              </div>
             </div>
             <div className={styles.contactItem}>
               <EnvironmentOutlined />

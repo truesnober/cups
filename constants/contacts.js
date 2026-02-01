@@ -1,6 +1,9 @@
 export const CONTACTS = {
-  phone: "+7 (989) 258-13-13",
-  email: "manager.simf@gmail.com \nlakin05@mail.ru",
+  phones: [
+    { number: "+7 (989) 258-13-13", name: "Владимир" },
+    { number: "+7 (978) 704-99-56", name: "Иван" },
+  ],
+  emails: ["lakin05@mail.ru", "manager.simf@gmail.com"],
   address: "г. Симферополь",
   workingHours: "Пн-Пт: 9:00 - 18:00",
 };
@@ -47,5 +50,5 @@ export const COMPANY_INFO = {
   name: 'ООО ”РОСТ КРЫМ"',
   description:
     "Премиум бумажные стаканы для вашего бизнеса. Качество, экологичность и стиль в каждом изделии.",
-  copyright: '© 2016 ООО ”РОСТ КРЫМ". Все права защищены.',
+  copyright: '© 2015 ООО ”РОСТ КРЫМ". Все права защищены.',
 };

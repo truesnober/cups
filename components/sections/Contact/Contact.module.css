@@ -103,6 +103,19 @@ a.contactValue:hover {
   color: #1DB954;
 }
 
+.phonesList,
+.emailsList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contactName {
+  font-weight: 400;
+  color: #8B8E99;
+  font-size: 14px;
+}
+
 .socials {
   display: flex;
   flex-direction: column;
