@@ -198,6 +198,28 @@ export const PRODUCTS = [
     ],
   },
   {
+    id: 5,
+    size: "300мл",
+    name: "Новинка",
+    description: "Скоро в продаже",
+    price: 3.5,
+    priceUnit: "₽",
+    dimensions: {
+      diameter: 85,
+      height: 100,
+    },
+    isSkeleton: true,
+    variants: [
+      {
+        id: "300-v1",
+        name: "Скоро",
+        image: null,
+        thumb: null,
+        color: "#E0E0E0",
+      },
+    ],
+  },
+  {
     id: 3,
     size: "350мл",
     name: "Латте",
@@ -378,8 +400,8 @@ export const PRODUCTS = [
 
 export const HERO_STATS = [
   {
-    value: "4",
-    label: "Размера",
+    value: "5",
+    label: "Размеров",
   },
   {
     value: "100%",

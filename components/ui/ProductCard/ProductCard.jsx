@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "antd";
 import {
   ArrowRightOutlined,
@@ -14,6 +14,10 @@ import styles from "./ProductCard.module.css";
 const ProductCard = ({ product }) => {
   const [selectedVariant, setSelectedVariant] = useState(product.variants[0]);
   const [isButtonHovered, setIsButtonHovered] = useState(false);
+  const [showMagnifier, setShowMagnifier] = useState(false);
+  const [magnifierPosition, setMagnifierPosition] = useState({ x: 0, y: 0 });
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const imageRef = useRef(null);
 
   const handleVariantChange = (variant) => {
     setSelectedVariant(variant);
@@ -44,6 +48,98 @@ const ProductCard = ({ product }) => {
     }
   };
 
+  const MAGNIFIER_SIZE = 90;
+  const ZOOM_LEVEL = 3;
+
+  const handleMouseMove = (e) => {
+    if (!imageRef.current) return;
+
+    const rect = imageRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const xPercent = (x / rect.width) * 100;
+    const yPercent = (y / rect.height) * 100;
+
+    setCursorPosition({ x, y });
+    setMagnifierPosition({ x: xPercent, y: yPercent });
+  };
+
+  const handleMouseEnter = () => {
+    if (selectedVariant?.image) {
+      setShowMagnifier(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setShowMagnifier(false);
+  };
+
+  if (product.isSkeleton) {
+    return (
+      <div className={`${styles.card} ${styles.skeletonCard}`}>
+        <div className={styles.imageContainer}>
+          <div className={styles.image}>
+            <div className={styles.skeletonPlaceholder}>
+              <svg
+                width="80"
+                height="100"
+                viewBox="0 0 80 100"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10 10 L70 10 L65 90 L15 90 Z"
+                  fill="#E8E8E8"
+                  stroke="#D0D0D0"
+                  strokeWidth="2"
+                  strokeDasharray="8 4"
+                />
+                <ellipse
+                  cx="40"
+                  cy="10"
+                  rx="30"
+                  ry="8"
+                  fill="#E8E8E8"
+                  stroke="#D0D0D0"
+                  strokeWidth="2"
+                  strokeDasharray="8 4"
+                />
+              </svg>
+              <span className={styles.comingSoon}>Скоро</span>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.content}>
+          <div className={styles.header}>
+            <h3 className={styles.size}>
+              {product.size}
+              <span className={styles.skeletonBadge}>NEW</span>
+            </h3>
+          </div>
+
+          <p className={styles.description}>{product.description}</p>
+
+          <div className={styles.skeletonColors}>
+            <div className={styles.skeletonColorDot} />
+            <div className={styles.skeletonColorDot} />
+            <div className={styles.skeletonColorDot} />
+          </div>
+
+          <div className={styles.dimensions}>
+            <span>∅ {product.dimensions.diameter}мм</span>
+            <span>↕ {product.dimensions.height}мм</span>
+          </div>
+
+          <div className={styles.footer}>
+            <div className={styles.skeletonPrice}>~{product.price.toFixed(2)} {product.priceUnit}</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.card}>
       <div className={styles.imageContainer}>
@@ -56,6 +152,7 @@ const ProductCard = ({ product }) => {
           </button>
         )}
         <div
+          ref={imageRef}
           className={styles.image}
           style={{
             ...(selectedVariant?.customSize || {}),
@@ -67,6 +164,9 @@ const ProductCard = ({ product }) => {
                 ? `url(${selectedVariant.image}), radial-gradient(ellipse at center, #fff5f0 0%, #f5f0eb 50%, #f0e6dd 100%)`
                 : "radial-gradient(ellipse at center, #fff5f0 0%, #f5f0eb 50%, #f0e6dd 100%)",
           }}
+          onMouseMove={handleMouseMove}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           {!selectedVariant?.image && (
             <div className={styles.placeholder}>
@@ -94,6 +194,22 @@ const ProductCard = ({ product }) => {
                 />
               </svg>
             </div>
+          )}
+
+          {showMagnifier && selectedVariant?.image && (
+            <div
+              className={styles.magnifier}
+              style={{
+                width: MAGNIFIER_SIZE,
+                height: MAGNIFIER_SIZE,
+                left: cursorPosition.x,
+                top: cursorPosition.y,
+                transform: "translate(-50%, -50%)",
+                backgroundImage: `url(${selectedVariant.image})`,
+                backgroundSize: `${ZOOM_LEVEL * 100}%`,
+                backgroundPosition: `${magnifierPosition.x}% ${magnifierPosition.y}%`,
+              }}
+            />
           )}
         </div>
         {product.variants.length > 1 && (
