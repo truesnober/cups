@@ -1,19 +1,19 @@
-'use client'
+"use client";
 
-import { Button } from 'antd';
-import { CheckOutlined } from '@ant-design/icons';
-import styles from './PricingCard.module.css';
+import { Button } from "antd";
+import { CheckOutlined } from "@ant-design/icons";
+import styles from "./PricingCard.module.css";
 
 const PricingCard = ({ plan }) => {
   const handleOrder = () => {
-    const element = document.querySelector('#contact');
+    const element = document.querySelector("#contact");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <div className={`${styles.card} ${plan.isPopular ? styles.popular : ''}`}>
+    <div className={`${styles.card} ${plan.isPopular ? styles.popular : ""}`}>
       {plan.badge && <div className={styles.badge}>{plan.badge}</div>}
 
       <div className={styles.header}>
@@ -25,7 +25,7 @@ const PricingCard = ({ plan }) => {
         {plan.price !== null ? (
           <>
             <span className={styles.price}>
-              {plan.price.toLocaleString('ru-RU')}
+              {plan.price.toLocaleString("ru-RU")}
             </span>
             <span className={styles.priceUnit}>{plan.priceUnit}</span>
           </>
@@ -35,11 +35,11 @@ const PricingCard = ({ plan }) => {
       </div>
 
       <p className={styles.quantity}>
-        от {plan.minQuantity.toLocaleString('ru-RU')} {plan.quantityUnit}
+        от {plan.minQuantity.toLocaleString("ru-RU")} {plan.quantityUnit}
       </p>
 
       <Button
-        type={plan.isPopular ? 'primary' : 'default'}
+        type={plan.isPopular ? "primary" : "default"}
         size="large"
         block
         onClick={handleOrder}

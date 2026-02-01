@@ -35,13 +35,13 @@ const Hero = () => {
 
         <h1 className={styles.title}>
           <span className={styles.titleMain}>Бумажные стаканы</span>
-          <span className={styles.titleAccent}>нового поколения</span>
+          <span className={styles.titleAccent}>качественного производства</span>
         </h1>
 
         <p className={styles.subtitle}>
           Четыре размера премиум-стаканов для вашего бизнеса.
           <br />
-          Идеальное решение для кофеен, ресторанов и офисов
+          Идеальное решение для кофеен, ресторанов, офисов и отелей
         </p>
 
         <div className={styles.buttons}>

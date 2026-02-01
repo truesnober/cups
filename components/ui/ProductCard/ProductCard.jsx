@@ -60,7 +60,9 @@ const ProductCard = ({ product }) => {
           style={{
             ...(selectedVariant?.customSize || {}),
             backgroundImage: selectedVariant?.customSize?.noGradient
-              ? selectedVariant?.image ? `url(${selectedVariant.image})` : "none"
+              ? selectedVariant?.image
+                ? `url(${selectedVariant.image})`
+                : "none"
               : selectedVariant?.image
                 ? `url(${selectedVariant.image}), radial-gradient(ellipse at center, #fff5f0 0%, #f5f0eb 50%, #f0e6dd 100%)`
                 : "radial-gradient(ellipse at center, #fff5f0 0%, #f5f0eb 50%, #f0e6dd 100%)",
@@ -110,7 +112,7 @@ const ProductCard = ({ product }) => {
             {product.size}
             <CheckOutlined className={styles.checkIcon} />
           </h3>
-          <p className={styles.name}>{product.name}</p>
+          {/* <p className={styles.name}>{product.name}</p> */}
         </div>
 
         <p className={styles.description}>{product.description}</p>

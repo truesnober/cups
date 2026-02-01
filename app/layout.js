@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
           name="keywords"
           content="бумажные стаканы, кофейные стаканы, экологичная упаковка, стаканы для кофе"
         />
-        <title>L&G</title>
+        <title>LuckyCup24</title>
       </head>
       <body>
         <ConfigProvider theme={theme}>{children}</ConfigProvider>
