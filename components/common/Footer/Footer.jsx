@@ -28,9 +28,15 @@ const Footer = () => {
                 className={styles.logoImage}
               />
             </a>
-            <p className={styles.description}>{COMPANY_INFO.description}</p>
+            <div>
+              <div className={styles.div}>
+                <p className={styles.description}>{COMPANY_INFO.description}</p>
+              </div>
+              <div className={styles.copyrighte}>
+                <p className={styles.copyright}>{COMPANY_INFO.copyright}</p>
+              </div>
+            </div>
           </div>
-
           <div className={styles.contacts}>
             <div className={styles.contactItem}>
               <PhoneOutlined />
@@ -72,10 +78,9 @@ const Footer = () => {
         </div>
 
         <div className={styles.bottom}>
-          <p className={styles.copyright}>{COMPANY_INFO.copyright}</p>
           <div className={styles.bottomLinks}>
-            <a href="#">Политика конфиденциальности</a>
-            <a href="#">Условия использования</a>
+            {/* <a href="#">Политика конфиденциальности</a>
+            <a href="#">Условия использования</a> */}
           </div>
         </div>
       </div>

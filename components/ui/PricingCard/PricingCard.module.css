@@ -101,6 +101,11 @@
   font-size: 14px;
   color: #8B8E99;
   margin: 0 0 24px 0;
+  min-height: 21px;
+}
+
+.quantity.hidden {
+  visibility: hidden;
 }
 
 .button {

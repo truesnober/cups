@@ -81,7 +81,10 @@
   }
 
   .grid > *:last-child {
-    max-width: none;
+    grid-column: auto !important;
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 !important;
   }
 
   .pricing {

@@ -18,24 +18,35 @@ const PricingCard = ({ plan }) => {
 
       <div className={styles.header}>
         <h3 className={styles.name}>{plan.name}</h3>
-        <p className={styles.description}>{plan.description}</p>
+        {/* <p className={styles.description}>{plan.description}</p> */}
       </div>
 
       <div className={styles.priceSection}>
-        {plan.price !== null ? (
+        {typeof plan.price === "number" ? (
           <>
             <span className={styles.price}>
               {plan.price.toLocaleString("ru-RU")}
             </span>
             <span className={styles.priceUnit}>{plan.priceUnit}</span>
           </>
+        ) : plan.price ? (
+          <span className={styles.priceLabel}>{plan.price}</span>
         ) : (
           <span className={styles.priceLabel}>{plan.priceLabel}</span>
         )}
       </div>
 
-      <p className={styles.quantity}>
-        {plan.minQuantity.toLocaleString("ru-RU")} {plan.quantityUnit}
+      <p className={`${styles.quantity} ${!plan.minQuantity ? styles.hidden : ""}`}>
+        {plan.minQuantity ? (
+          <>
+            {typeof plan.minQuantity === "number"
+              ? plan.minQuantity.toLocaleString("ru-RU")
+              : plan.minQuantity}{" "}
+            {plan.quantityUnit}
+          </>
+        ) : (
+          "\u00A0"
+        )}
       </p>
 
       <Button

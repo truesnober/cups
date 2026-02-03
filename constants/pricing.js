@@ -9,11 +9,11 @@ export const PRICING_PLANS = [
     quantityUnit: "",
     isPopular: false,
     features: [
-      { text: "175мл — 1.7₽", included: true },
-      { text: "330мл — ???", included: true },
-      { text: "250мл — 2₽", included: true },
-      { text: "350мл — 2.5₽", included: true },
-      { text: "450мл — 2.8₽", included: true },
+      { text: "175мл — 1.70₽", included: true },
+      { text: "330мл — 3.20₽", included: true },
+      { text: "250мл — 2.00₽", included: true },
+      { text: "350мл — 2.50₽", included: true },
+      { text: "450мл — 2.80₽", included: true },
     ],
   },
   {

@@ -44,7 +44,7 @@ export const PRODUCTS = [
     size: "330мл",
     name: "Новинка",
     description: `Идеально для вендинга!`,
-    price: 3.5,
+    price: 3.2,
     priceUnit: "₽",
     dimensions: {
       height: 118,
@@ -53,7 +53,7 @@ export const PRODUCTS = [
     },
     packaging: {
       sleeve: 50,
-      box: 2000,
+      box: 1000,
     },
     variants: [
       {
