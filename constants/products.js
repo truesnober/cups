@@ -3,12 +3,17 @@ export const PRODUCTS = [
     id: 1,
     size: "175мл",
     name: "Эспрессо",
-    description: "Идеально для эспрессо и ристретто",
-    price: 2.5,
+    description: "Идеально для вендинга",
+    price: 1.7,
     priceUnit: "₽",
     dimensions: {
-      diameter: 62,
-      height: 65,
+      height: 79,
+      topDiameter: 70.18,
+      bottomDiameter: 46,
+    },
+    packaging: {
+      sleeve: 50,
+      box: 2000,
     },
     variants: [
       {
@@ -35,15 +40,47 @@ export const PRODUCTS = [
     ],
   },
   {
+    id: 5,
+    size: "330мл",
+    name: "Новинка",
+    description: "Скоро в продаже",
+    price: 3.5,
+    priceUnit: "₽",
+    dimensions: {
+      height: 117.5,
+      topDiameter: 74.6,
+      bottomDiameter: 53.3,
+    },
+    packaging: {
+      sleeve: 50,
+      box: 2000,
+    },
+    isSkeleton: true,
+    variants: [
+      {
+        id: "300-v1",
+        name: "Скоро",
+        image: null,
+        thumb: null,
+        color: "#E0E0E0",
+      },
+    ],
+  },
+  {
     id: 2,
     size: "250мл",
     name: "Американо",
     description: "Классический размер для американо",
-    price: 3.2,
+    price: 2.0,
     priceUnit: "₽",
     dimensions: {
-      diameter: 80,
-      height: 90,
+      height: 92,
+      topDiameter: 80.02,
+      bottomDiameter: 56.6,
+    },
+    packaging: {
+      sleeve: 50,
+      box: 1250,
     },
     variants: [
       {
@@ -197,38 +234,22 @@ export const PRODUCTS = [
       },
     ],
   },
-  {
-    id: 5,
-    size: "300мл",
-    name: "Новинка",
-    description: "Скоро в продаже",
-    price: 3.5,
-    priceUnit: "₽",
-    dimensions: {
-      diameter: 85,
-      height: 100,
-    },
-    isSkeleton: true,
-    variants: [
-      {
-        id: "300-v1",
-        name: "Скоро",
-        image: null,
-        thumb: null,
-        color: "#E0E0E0",
-      },
-    ],
-  },
+
   {
     id: 3,
     size: "350мл",
     name: "Латте",
     description: "Большой размер для латте и капучино",
-    price: 3.8,
+    price: 2.5,
     priceUnit: "₽",
     dimensions: {
-      diameter: 90,
-      height: 110,
+      height: 106,
+      topDiameter: 83.61,
+      bottomDiameter: 58.57,
+    },
+    packaging: {
+      sleeve: 50,
+      box: 1000,
     },
     variants: [
       {
@@ -312,14 +333,15 @@ export const PRODUCTS = [
   },
   {
     id: 4,
-    size: "400мл",
+    size: "450мл",
     name: "Максимум",
     description: "Максимальный объём для больших порций",
-    price: 4.5,
+    price: 2.8,
     priceUnit: "₽",
     dimensions: {
-      diameter: 90,
-      height: 135,
+      height: 112,
+      topDiameter: 83.42,
+      bottomDiameter: 59.06,
     },
     variants: [
       {

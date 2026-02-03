@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Button } from "antd";
 import {
-  ArrowRightOutlined,
   CheckOutlined,
   LeftOutlined,
   RightOutlined,
@@ -11,6 +10,31 @@ import {
 } from "@ant-design/icons";
 import ColorCarousel from "../ColorCarousel";
 import styles from "./ProductCard.module.css";
+
+// SVG иконки
+const BoxIcon = ({ className }) => (
+  <svg
+    className={className}
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+  >
+    <path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.991.991 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9zM12 4.15L6.04 7.5 12 10.85l5.96-3.35L12 4.15zM5 15.91l6 3.38v-6.71L5 9.21v6.7zm14 0v-6.7l-6 3.37v6.71l6-3.38z" />
+  </svg>
+);
+
+const InboxIcon = ({ className }) => (
+  <svg
+    className={className}
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+  >
+    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5v-3h3.56c.69 1.19 1.97 2 3.45 2s2.75-.81 3.45-2H19v3zm0-5h-4.99c0 1.1-.9 2-2 2s-2-.9-2-2H5V5h14v9z" />
+  </svg>
+);
 
 const ProductCard = ({ product }) => {
   const [selectedVariant, setSelectedVariant] = useState(product.variants[0]);
@@ -101,7 +125,10 @@ const ProductCard = ({ product }) => {
         <div className={styles.content}>
           <div className={styles.header}>
             <h3 className={styles.size}>
-              <span className={styles.skeletonBar} style={{ width: "80px", height: "28px" }} />
+              <span
+                className={styles.skeletonBar}
+                style={{ width: "80px", height: "28px" }}
+              />
               <span className={styles.skeletonBadge}>NEW</span>
             </h3>
           </div>
@@ -120,10 +147,26 @@ const ProductCard = ({ product }) => {
           <div className={styles.dimensions}>
             <span className={styles.skeletonDimension} />
             <span className={styles.skeletonDimension} />
+            <span className={styles.skeletonDimension} />
+          </div>
+
+          {/* Скелетон для информации об упаковке */}
+          <div className={styles.packaging}>
+            <div className={styles.skeletonPackagingItem}>
+              <div className={styles.skeletonPackagingIcon} />
+              <span className={styles.skeletonBar} style={{ width: "60px" }} />
+            </div>
+            <div className={styles.skeletonPackagingItem}>
+              <div className={styles.skeletonPackagingIcon} />
+              <span className={styles.skeletonBar} style={{ width: "80px" }} />
+            </div>
           </div>
 
           <div className={styles.footer}>
-            <span className={styles.skeletonBar} style={{ width: "70px", height: "20px" }} />
+            <span
+              className={styles.skeletonBar}
+              style={{ width: "70px", height: "20px" }}
+            />
           </div>
         </div>
       </div>
@@ -211,9 +254,38 @@ const ProductCard = ({ product }) => {
           />
 
           <div className={styles.dimensions}>
-            <span>∅ {product.dimensions.diameter}мм</span>
-            <span>↕ {product.dimensions.height}мм</span>
+            {product.dimensions.height ? (
+              <>
+                <span>↕ высота {product.dimensions.height}</span>
+                <span>∅ верх {product.dimensions.topDiameter}</span>
+                <span>∅ низ {product.dimensions.bottomDiameter}</span>
+              </>
+            ) : (
+              <span className={styles.dimensionsUnknown}>
+                Размеры уточняются
+              </span>
+            )}
           </div>
+
+          {/* Добавленная секция с информацией об упаковке */}
+          {product.packaging && (
+            <div className={styles.packaging}>
+              <div className={styles.packagingItem}>
+                <BoxIcon className={styles.packagingIcon} />
+                <span className={styles.packagingLabel}>В рукаве:</span>
+                <span className={styles.packagingValue}>
+                  {product.packaging.sleeve} шт.
+                </span>
+              </div>
+              <div className={styles.packagingItem}>
+                <InboxIcon className={styles.packagingIcon} />
+                <span className={styles.packagingLabel}>В коробке:</span>
+                <span className={styles.packagingValue}>
+                  {product.packaging.box.toLocaleString()} шт.
+                </span>
+              </div>
+            </div>
+          )}
 
           <div className={styles.footer}>
             <div className={styles.price}>
@@ -221,8 +293,6 @@ const ProductCard = ({ product }) => {
             </div>
             <Button
               type="primary"
-              shape="circle"
-              icon={<ArrowRightOutlined />}
               onClick={handleOrder}
               className={styles.orderButton}
               onMouseEnter={() => setIsButtonHovered(true)}
@@ -230,14 +300,16 @@ const ProductCard = ({ product }) => {
               style={
                 isButtonHovered
                   ? {
-                      transform: "scale(1.15)",
+                      transform: "scale(1.05)",
                       boxShadow: "0 4px 16px rgba(29, 185, 84, 0.5)",
                       backgroundColor: "#15a049",
                       borderColor: "#15a049",
                     }
                   : {}
               }
-            />
+            >
+              Заказать
+            </Button>
           </div>
         </div>
       </div>
@@ -265,7 +337,7 @@ const ProductCard = ({ product }) => {
                   className={`${styles.modalArrow} ${styles.modalArrowRight}`}
                   onClick={handleNext}
                 >
-                  <RightOutlined />
+                  Заказать
                 </button>
               </>
             )}
