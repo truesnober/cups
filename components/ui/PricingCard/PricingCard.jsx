@@ -35,7 +35,7 @@ const PricingCard = ({ plan }) => {
       </div>
 
       <p className={styles.quantity}>
-        от {plan.minQuantity.toLocaleString("ru-RU")} {plan.quantityUnit}
+        {plan.minQuantity.toLocaleString("ru-RU")} {plan.quantityUnit}
       </p>
 
       <Button

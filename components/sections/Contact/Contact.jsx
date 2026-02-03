@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   PhoneOutlined,
@@ -8,9 +8,9 @@ import {
   SendOutlined,
   WhatsAppOutlined,
   InstagramOutlined,
-} from '@ant-design/icons';
-import { CONTACTS, SOCIAL_LINKS } from '@/constants';
-import styles from './Contact.module.css';
+} from "@ant-design/icons";
+import { CONTACTS, SOCIAL_LINKS } from "@/constants";
+import styles from "./Contact.module.css";
 
 const Contact = () => {
   return (
@@ -24,7 +24,8 @@ const Contact = () => {
             сотрудничество?
           </h2>
           <p className={styles.description}>
-            Мы всегда рады ответить на ваши вопросы и обсудить детали сотрудничества
+            Мы всегда рады ответить на ваши вопросы и обсудить детали
+            сотрудничества
           </p>
         </div>
 
@@ -37,8 +38,13 @@ const Contact = () => {
               <span className={styles.contactLabel}>Телефоны</span>
               <div className={styles.phonesList}>
                 {CONTACTS.phones.map((phone, index) => (
-                  <a key={index} href={`tel:${phone.number.replace(/\s/g, '')}`} className={styles.contactValue}>
-                    {phone.number} <span className={styles.contactName}>({phone.name})</span>
+                  <a
+                    key={index}
+                    href={`tel:${phone.number.replace(/\s/g, "")}`}
+                    className={styles.contactValue}
+                  >
+                    {phone.number}{" "}
+                    <span className={styles.contactName}>({phone.name})</span>
                   </a>
                 ))}
               </div>
@@ -53,7 +59,11 @@ const Contact = () => {
               <span className={styles.contactLabel}>Email</span>
               <div className={styles.emailsList}>
                 {CONTACTS.emails.map((email, index) => (
-                  <a key={index} href={`mailto:${email}`} className={styles.contactValue}>
+                  <a
+                    key={index}
+                    href={`mailto:${email}`}
+                    className={styles.contactValue}
+                  >
                     {email}
                   </a>
                 ))}
@@ -67,7 +77,11 @@ const Contact = () => {
             </div>
             <div className={styles.contactText}>
               <span className={styles.contactLabel}>Адрес</span>
-              <span className={styles.contactValue}>{CONTACTS.address}</span>
+              <span className={styles.contactValue}>
+                {CONTACTS.address[0]}
+                <br />
+                {CONTACTS.address[1]}
+              </span>
             </div>
           </div>
 
@@ -77,7 +91,9 @@ const Contact = () => {
             </div>
             <div className={styles.contactText}>
               <span className={styles.contactLabel}>Режим работы</span>
-              <span className={styles.contactValue}>{CONTACTS.workingHours}</span>
+              <span className={styles.contactValue}>
+                {CONTACTS.workingHours}
+              </span>
             </div>
           </div>
         </div>
@@ -94,9 +110,15 @@ const Contact = () => {
                 className={styles.socialLink}
                 aria-label={social.name}
               >
-                {social.icon === 'telegram' && <SendOutlined style={{ fontSize: '24px' }} />}
-                {social.icon === 'whatsapp' && <WhatsAppOutlined style={{ fontSize: '24px' }} />}
-                {social.icon === 'instagram' && <InstagramOutlined style={{ fontSize: '24px' }} />}
+                {social.icon === "telegram" && (
+                  <SendOutlined style={{ fontSize: "24px" }} />
+                )}
+                {social.icon === "whatsapp" && (
+                  <WhatsAppOutlined style={{ fontSize: "24px" }} />
+                )}
+                {social.icon === "instagram" && (
+                  <InstagramOutlined style={{ fontSize: "24px" }} />
+                )}
               </a>
             ))}
           </div>

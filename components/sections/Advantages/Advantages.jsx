@@ -1,22 +1,22 @@
-'use client'
+"use client";
 
 import {
   SafetyCertificateOutlined,
   CheckCircleOutlined,
   DollarOutlined,
   CarOutlined,
-  CustomerServiceOutlined,
   StarOutlined,
-} from '@ant-design/icons';
-import { ADVANTAGES } from '@/constants';
-import styles from './Advantages.module.css';
+  HeartOutlined,
+} from "@ant-design/icons";
+import { ADVANTAGES } from "@/constants";
+import styles from "./Advantages.module.css";
 
 const iconMap = {
   safety: SafetyCertificateOutlined,
   check: CheckCircleOutlined,
   dollar: DollarOutlined,
   truck: CarOutlined,
-  support: CustomerServiceOutlined,
+  support: HeartOutlined,
   star: StarOutlined,
 };
 
@@ -32,14 +32,17 @@ const Advantages = () => {
 
         <div className={styles.grid}>
           {ADVANTAGES.map((advantage) => {
-            const IconComponent = iconMap[advantage.icon] || CheckCircleOutlined;
+            const IconComponent =
+              iconMap[advantage.icon] || CheckCircleOutlined;
             return (
               <div key={advantage.id} className={styles.card}>
                 <div className={styles.iconWrapper}>
                   <IconComponent className={styles.icon} />
                 </div>
                 <h3 className={styles.cardTitle}>{advantage.title}</h3>
-                <p className={styles.cardDescription}>{advantage.description}</p>
+                <p className={styles.cardDescription}>
+                  {advantage.description}
+                </p>
               </div>
             );
           })}

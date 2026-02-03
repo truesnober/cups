@@ -7,6 +7,7 @@ import {
   LeftOutlined,
   RightOutlined,
   CloseOutlined,
+  ArrowRightOutlined,
 } from "@ant-design/icons";
 import ColorCarousel from "../ColorCarousel";
 import styles from "./ProductCard.module.css";
@@ -86,92 +87,92 @@ const ProductCard = ({ product }) => {
     }
   };
 
-  if (product.isSkeleton) {
-    return (
-      <div className={`${styles.card} ${styles.skeletonCard}`}>
-        <div className={styles.imageContainer}>
-          <div className={styles.image}>
-            <div className={styles.skeletonPlaceholder}>
-              <svg
-                width="80"
-                height="100"
-                viewBox="0 0 80 100"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M10 10 L70 10 L65 90 L15 90 Z"
-                  fill="#E8E8E8"
-                  stroke="#D0D0D0"
-                  strokeWidth="2"
-                  strokeDasharray="8 4"
-                />
-                <ellipse
-                  cx="40"
-                  cy="10"
-                  rx="30"
-                  ry="8"
-                  fill="#E8E8E8"
-                  stroke="#D0D0D0"
-                  strokeWidth="2"
-                  strokeDasharray="8 4"
-                />
-              </svg>
-              <span className={styles.comingSoon}>Скоро</span>
-            </div>
-          </div>
-        </div>
+  // if (product.isSkeleton) {
+  //   return (
+  //     <div className={`${styles.card} ${styles.skeletonCard}`}>
+  //       <div className={styles.imageContainer}>
+  //         <div className={styles.image}>
+  //           <div className={styles.skeletonPlaceholder}>
+  //             <svg
+  //               width="80"
+  //               height="100"
+  //               viewBox="0 0 80 100"
+  //               fill="none"
+  //               xmlns="http://www.w3.org/2000/svg"
+  //             >
+  //               <path
+  //                 d="M10 10 L70 10 L65 90 L15 90 Z"
+  //                 fill="#E8E8E8"
+  //                 stroke="#D0D0D0"
+  //                 strokeWidth="2"
+  //                 strokeDasharray="8 4"
+  //               />
+  //               <ellipse
+  //                 cx="40"
+  //                 cy="10"
+  //                 rx="30"
+  //                 ry="8"
+  //                 fill="#E8E8E8"
+  //                 stroke="#D0D0D0"
+  //                 strokeWidth="2"
+  //                 strokeDasharray="8 4"
+  //               />
+  //             </svg>
+  //             <span className={styles.comingSoon}>Скоро</span>
+  //           </div>
+  //         </div>
+  //       </div>
 
-        <div className={styles.content}>
-          <div className={styles.header}>
-            <h3 className={styles.size}>
-              <span
-                className={styles.skeletonBar}
-                style={{ width: "80px", height: "28px" }}
-              />
-              <span className={styles.skeletonBadge}>NEW</span>
-            </h3>
-          </div>
+  //       <div className={styles.content}>
+  //         <div className={styles.header}>
+  //           <h3 className={styles.size}>
+  //             <span
+  //               className={styles.skeletonBar}
+  //               style={{ width: "80px", height: "28px" }}
+  //             />
+  //             <span className={styles.skeletonBadge}>NEW</span>
+  //           </h3>
+  //         </div>
 
-          <div className={styles.skeletonTextLines}>
-            <span className={styles.skeletonBar} style={{ width: "100%" }} />
-            <span className={styles.skeletonBar} style={{ width: "70%" }} />
-          </div>
+  //         <div className={styles.skeletonTextLines}>
+  //           <span className={styles.skeletonBar} style={{ width: "100%" }} />
+  //           <span className={styles.skeletonBar} style={{ width: "70%" }} />
+  //         </div>
 
-          <div className={styles.skeletonColors}>
-            <div className={styles.skeletonColorDot} />
-            <div className={styles.skeletonColorDot} />
-            <div className={styles.skeletonColorDot} />
-          </div>
+  //         <div className={styles.skeletonColors}>
+  //           <div className={styles.skeletonColorDot} />
+  //           <div className={styles.skeletonColorDot} />
+  //           <div className={styles.skeletonColorDot} />
+  //         </div>
 
-          <div className={styles.dimensions}>
-            <span className={styles.skeletonDimension} />
-            <span className={styles.skeletonDimension} />
-            <span className={styles.skeletonDimension} />
-          </div>
+  //         <div className={styles.dimensions}>
+  //           <span className={styles.skeletonDimension} />
+  //           <span className={styles.skeletonDimension} />
+  //           <span className={styles.skeletonDimension} />
+  //         </div>
 
-          {/* Скелетон для информации об упаковке */}
-          <div className={styles.packaging}>
-            <div className={styles.skeletonPackagingItem}>
-              <div className={styles.skeletonPackagingIcon} />
-              <span className={styles.skeletonBar} style={{ width: "60px" }} />
-            </div>
-            <div className={styles.skeletonPackagingItem}>
-              <div className={styles.skeletonPackagingIcon} />
-              <span className={styles.skeletonBar} style={{ width: "80px" }} />
-            </div>
-          </div>
+  //         {/* Скелетон для информации об упаковке */}
+  //         <div className={styles.packaging}>
+  //           <div className={styles.skeletonPackagingItem}>
+  //             <div className={styles.skeletonPackagingIcon} />
+  //             <span className={styles.skeletonBar} style={{ width: "60px" }} />
+  //           </div>
+  //           <div className={styles.skeletonPackagingItem}>
+  //             <div className={styles.skeletonPackagingIcon} />
+  //             <span className={styles.skeletonBar} style={{ width: "80px" }} />
+  //           </div>
+  //         </div>
 
-          <div className={styles.footer}>
-            <span
-              className={styles.skeletonBar}
-              style={{ width: "70px", height: "20px" }}
-            />
-          </div>
-        </div>
-      </div>
-    );
-  }
+  //         <div className={styles.footer}>
+  //           <span
+  //             className={styles.skeletonBar}
+  //             style={{ width: "70px", height: "20px" }}
+  //           />
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   return (
     <>
@@ -257,8 +258,8 @@ const ProductCard = ({ product }) => {
             {product.dimensions.height ? (
               <>
                 <span>↕ высота {product.dimensions.height}</span>
-                <span>∅ верх {product.dimensions.topDiameter}</span>
-                <span>∅ низ {product.dimensions.bottomDiameter}</span>
+                <span>∅ горлышко {product.dimensions.topDiameter}</span>
+                <span>∅ дно {product.dimensions.bottomDiameter}</span>
               </>
             ) : (
               <span className={styles.dimensionsUnknown}>
@@ -337,7 +338,7 @@ const ProductCard = ({ product }) => {
                   className={`${styles.modalArrow} ${styles.modalArrowRight}`}
                   onClick={handleNext}
                 >
-                  Заказать
+                  <ArrowRightOutlined />
                 </button>
               </>
             )}

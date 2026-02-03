@@ -4,7 +4,7 @@ export const CONTACTS = {
     { number: "+7 (978) 704-99-56", name: "Иван" },
   ],
   emails: ["crimea.cup@mail.ru", "manager.simf@gmail.com"],
-  address: "р. Крым, г. Симферополь",
+  address: ["Республика Крым,", "г. Симферополь"],
   workingHours: "Пн-Пт: 9:00 - 18:00",
 };
 

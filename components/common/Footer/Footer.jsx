@@ -36,8 +36,12 @@ const Footer = () => {
               <PhoneOutlined />
               <div className={styles.phonesList}>
                 {CONTACTS.phones.map((phone, index) => (
-                  <a key={index} href={`tel:${phone.number.replace(/\s/g, "")}`}>
-                    {phone.number} <span className={styles.contactName}>({phone.name})</span>
+                  <a
+                    key={index}
+                    href={`tel:${phone.number.replace(/\s/g, "")}`}
+                  >
+                    {phone.number}{" "}
+                    <span className={styles.contactName}>({phone.name})</span>
                   </a>
                 ))}
               </div>
@@ -54,7 +58,11 @@ const Footer = () => {
             </div>
             <div className={styles.contactItem}>
               <EnvironmentOutlined />
-              <span>{CONTACTS.address}</span>
+              <span>
+                {CONTACTS.address[0]}
+                <br />
+                {CONTACTS.address[1]}
+              </span>
             </div>
             <div className={styles.contactItem}>
               <ClockCircleOutlined />
